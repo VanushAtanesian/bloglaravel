@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix'=>'adminzone'], function()
+
+{
+Route::get('/', function()
+{
+     return view('admin.dashboard');
+});
+Route::resource('Articles','ArticlesController');
+Route::resource('Pages','PagesController');
+Route::resource('Categories','CategoriesController');
 });
